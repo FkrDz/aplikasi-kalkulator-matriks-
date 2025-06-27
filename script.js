@@ -43,7 +43,7 @@ function displayMatrix(matrix) {
   for (let row of matrix) {
     html += "<tr>";
     for (let val of row) {
-      html += `<td>${Number.isFinite(val) ? val.toFixed(2) : val}</td>`;
+      html += `<td>${formatNumber(val)}</td>`;
     }
     html += "</tr>";
   }
@@ -51,8 +51,18 @@ function displayMatrix(matrix) {
   document.getElementById("resultMatrix").innerHTML = html;
 }
 
+function formatNumber(num) {
+  if (Number.isInteger(num)) {
+    return num;
+  } else if (Math.abs(num - Math.round(num)) < 1e-8) {
+    return Math.round(num);
+  } else {
+    return num.toFixed(2);
+  }
+}
+
 function displayScalar(value) {
-  document.getElementById("resultMatrix").innerHTML = `<p><strong>${value.toFixed(2)}</strong></p>`;
+  document.getElementById("resultMatrix").innerHTML = `<p><strong>${formatNumber(value)}</strong></p>`;
 }
 
 function calculate(op) {
