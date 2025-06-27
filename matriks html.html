@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Matriks - Fikri Dzakwan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Kalkulator Matriks</h1>
+            <div class="student-info">
+                <p><strong>Nama:</strong> Fikri Dzakwan</p>
+                <p><strong>NIM:</strong> 411241032</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Kontrol Pengaturan -->
+            <section class="controls-section">
+                <div class="control-group">
+                    <label for="matrixSize">Ukuran Matriks:</label>
+                    <select id="matrixSize" class="control-select">
+                        <option value="2">2x2</option>
+                        <option value="3" selected>3x3</option>
+                        <option value="4">4x4</option>
+                    </select>
+                </div>
+                
+                <div class="control-group">
+                    <label for="operation">Operasi:</label>
+                    <select id="operation" class="control-select">
+                        <option value="add">Penjumlahan (+)</option>
+                        <option value="subtract">Pengurangan (-)</option>
+                        <option value="multiply">Perkalian (×)</option>
+                        <option value="determinant">Determinan</option>
+                        <option value="transpose">Transpose</option>
+                        <option value="inverse">Invers</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Area Matriks -->
+            <section class="matrices-section">
+                <div class="matrix-container">
+                    <h3 class="matrix-title">Matriks A</h3>
+                    <div id="matrixA" class="matrix-grid"></div>
+                </div>
+
+                <div class="matrix-container" id="matrixBContainer">
+                    <h3 class="matrix-title">Matriks B</h3>
+                    <div id="matrixB" class="matrix-grid"></div>
+                </div>
+            </section>
+
+            <!-- Tombol Aksi -->
+            <section class="actions-section">
+                <button id="calculateBtn" class="btn btn-primary">
+                    <span class="btn-icon">🧮</span>
+                    Hitung
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🧹</span>
+                    Bersihkan
+                </button>
+                <button id="randomBtn" class="btn btn-secondary">
+                    <span class="btn-icon">🎲</span>
+                    Isi Random
+                </button>
+            </section>
+
+            <!-- Area Hasil -->
+            <section class="result-section">
+                <h3 class="result-title">Hasil Perhitungan</h3>
+                <div id="resultDisplay" class="result-display">
+                    <div class="result-placeholder">
+                        Pilih operasi dan isi matriks untuk melihat hasil
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Kalkulator Matriks - Fikri Dzakwan (411241032)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
