@@ -1,70 +1,64 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Matriks - Fikri Dzakwan</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulator Matriks - Fikri Dzakwan</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🔢 Kalkulator Matriks</h1>
-            <div class="info">
-                <div><strong>Nama:</strong> Fikri Dzakwan</div>
-                <div><strong>NIM:</strong> 411241032</div>
-            </div>
-        </div>
+  <header>
+    <h1>Kalkulator Matriks</h1>
+    <p>Nama: Fikri Dzakwan | NIM: 411241032</p>
+  </header>
 
-        <div class="controls">
-            <div class="size-control">
-                <label>Baris Matriks A:</label>
-                <input type="number" id="rowsA" value="2" min="1" max="5">
-            </div>
-            <div class="size-control">
-                <label>Kolom Matriks A:</label>
-                <input type="number" id="colsA" value="2" min="1" max="5">
-            </div>
-            <div class="size-control">
-                <label>Baris Matriks B:</label>
-                <input type="number" id="rowsB" value="2" min="1" max="5">
-            </div>
-            <div class="size-control">
-                <label>Kolom Matriks B:</label>
-                <input type="number" id="colsB" value="2" min="1" max="5">
-            </div>
-        </div>
+  <main>
+    <section class="matrix-inputs">
+      <div class="matrix">
+        <h2>Matriks A</h2>
+        <table>
+          <tr>
+            <td><input type="number" id="a11" /></td>
+            <td><input type="number" id="a12" /></td>
+          </tr>
+          <tr>
+            <td><input type="number" id="a21" /></td>
+            <td><input type="number" id="a22" /></td>
+          </tr>
+        </table>
+      </div>
 
-        <div class="operations">
-            <button class="btn btn-primary" onclick="calculateMatrix('add')">A + B</button>
-            <button class="btn btn-primary" onclick="calculateMatrix('subtract')">A - B</button>
-            <button class="btn btn-success" onclick="calculateMatrix('multiply')">A × B</button>
-            <button class="btn btn-warning" onclick="calculateMatrix('determinant')">Determinan</button>
-            <button class="btn btn-info" onclick="calculateMatrix('transpose')">Transpose</button>
-            <button class="btn btn-danger" onclick="generateMatrices()">Buat Matriks</button>
-        </div>
+      <div class="matrix">
+        <h2>Matriks B</h2>
+        <table>
+          <tr>
+            <td><input type="number" id="b11" /></td>
+            <td><input type="number" id="b12" /></td>
+          </tr>
+          <tr>
+            <td><input type="number" id="b21" /></td>
+            <td><input type="number" id="b22" /></td>
+          </tr>
+        </table>
+      </div>
+    </section>
 
-        <div class="matrices-container">
-            <div class="matrix-section">
-                <h3>Matriks A</h3>
-                <div id="matrixA" class="matrix"></div>
-                <button class="btn btn-secondary" onclick="randomFillMatrix('matrixA')">Isi Random</button>
-            </div>
-            <div class="matrix-section">
-                <h3>Matriks B</h3>
-                <div id="matrixB" class="matrix"></div>
-                <button class="btn btn-secondary" onclick="randomFillMatrix('matrixB')">Isi Random</button>
-            </div>
-        </div>
+    <section class="operations">
+      <button onclick="calculate('add')">Tambah (+)</button>
+      <button onclick="calculate('subtract')">Kurang (-)</button>
+      <button onclick="calculate('multiply')">Kali (×)</button>
+    </section>
 
-        <div class="result-section">
-            <h3>Hasil Operasi</h3>
-            <div id="result">
-                <p style="text-align: center; color: #666;">Belum ada operasi yang dilakukan</p>
-            </div>
-        </div>
-    </div>
+    <section class="result">
+      <h2>Hasil</h2>
+      <div id="resultMatrix"></div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 Fikri Dzakwan | 411241032</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
