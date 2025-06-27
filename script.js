@@ -2,11 +2,13 @@ let currentOrder = 2;
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("generateBtn").addEventListener("click", renderMatrixInputs);
+  document.getElementById("randomBtn").addEventListener("click", fillRandom);
   renderMatrixInputs();
 });
 
 function renderMatrixInputs() {
   currentOrder = parseInt(document.getElementById("order").value);
+  document.getElementById("resultMatrix").innerHTML = "";  // Clear result
   const matrixA = document.getElementById("matrixA");
   const matrixB = document.getElementById("matrixB");
 
@@ -15,7 +17,7 @@ function renderMatrixInputs() {
 }
 
 function generateMatrixGrid(prefix, order) {
-  let grid = `<div class="matrix-grid" style="grid-template-columns: repeat(${order}, auto)">`;
+  let grid = `<div class="matrix-grid" style="grid-template-columns: repeat(${order}, 1fr)">`;
   for (let i = 0; i < order; i++) {
     for (let j = 0; j < order; j++) {
       grid += `<input type="number" id="${prefix}_${i}_${j}" value="0">`;
@@ -38,6 +40,30 @@ function getMatrix(prefix) {
   return matrix;
 }
 
+function setMatrix(prefix, matrix) {
+  for (let i = 0; i < currentOrder; i++) {
+    for (let j = 0; j < currentOrder; j++) {
+      document.getElementById(`${prefix}_${i}_${j}`).value = matrix[i][j];
+    }
+  }
+}
+
+function fillRandom() {
+  const randomMatrix = () => {
+    let m = [];
+    for (let i = 0; i < currentOrder; i++) {
+      let row = [];
+      for (let j = 0; j < currentOrder; j++) {
+        row.push(Math.floor(Math.random() * 21) - 10); // -10 to +10
+      }
+      m.push(row);
+    }
+    return m;
+  };
+  setMatrix('a', randomMatrix());
+  setMatrix('b', randomMatrix());
+}
+
 function displayMatrix(matrix) {
   let html = "<table>";
   for (let row of matrix) {
@@ -51,6 +77,10 @@ function displayMatrix(matrix) {
   document.getElementById("resultMatrix").innerHTML = html;
 }
 
+function displayScalar(value) {
+  document.getElementById("resultMatrix").innerHTML = `<p><strong>${formatNumber(value)}</strong></p>`;
+}
+
 function formatNumber(num) {
   if (Number.isInteger(num)) {
     return num;
@@ -59,10 +89,6 @@ function formatNumber(num) {
   } else {
     return num.toFixed(2);
   }
-}
-
-function displayScalar(value) {
-  document.getElementById("resultMatrix").innerHTML = `<p><strong>${formatNumber(value)}</strong></p>`;
 }
 
 function calculate(op) {
