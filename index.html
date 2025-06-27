@@ -13,40 +13,27 @@
   </header>
 
   <main>
-    <section class="matrix-inputs">
-      <div class="matrix">
-        <h2>Matriks A</h2>
-        <table>
-          <tr>
-            <td><input type="number" id="a11" /></td>
-            <td><input type="number" id="a12" /></td>
-          </tr>
-          <tr>
-            <td><input type="number" id="a21" /></td>
-            <td><input type="number" id="a22" /></td>
-          </tr>
-        </table>
-      </div>
+    <section class="controls">
+      <label for="order">Pilih Ordo Matriks:</label>
+      <select id="order" onchange="renderMatrixInputs()">
+        <option value="2">2x2</option>
+        <option value="3">3x3</option>
+        <option value="4">4x4</option>
+      </select>
+    </section>
 
-      <div class="matrix">
-        <h2>Matriks B</h2>
-        <table>
-          <tr>
-            <td><input type="number" id="b11" /></td>
-            <td><input type="number" id="b12" /></td>
-          </tr>
-          <tr>
-            <td><input type="number" id="b21" /></td>
-            <td><input type="number" id="b22" /></td>
-          </tr>
-        </table>
-      </div>
+    <section id="matrices">
+      <div id="matrixA" class="matrix-block"></div>
+      <div id="matrixB" class="matrix-block"></div>
     </section>
 
     <section class="operations">
       <button onclick="calculate('add')">Tambah (+)</button>
       <button onclick="calculate('subtract')">Kurang (-)</button>
       <button onclick="calculate('multiply')">Kali (×)</button>
+      <button onclick="calculate('transposeA')">Transpose A</button>
+      <button onclick="calculate('determinantA')">Determinan A</button>
+      <button onclick="calculate('inverseA')">Invers A</button>
     </section>
 
     <section class="result">
