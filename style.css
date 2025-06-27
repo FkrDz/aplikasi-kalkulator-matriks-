@@ -38,6 +38,13 @@ main {
   font-weight: bold;
 }
 
+.controls select, .controls button {
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
 #matrices {
   display: flex;
   justify-content: space-around;
@@ -51,6 +58,7 @@ main {
   border: 1px solid #ccc;
   border-radius: 8px;
   background: #fafafa;
+  min-width: 150px;
 }
 
 .matrix-block h2 {
