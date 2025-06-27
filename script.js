@@ -1,6 +1,7 @@
 let currentOrder = 2;
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("generateBtn").addEventListener("click", renderMatrixInputs);
   renderMatrixInputs();
 });
 
